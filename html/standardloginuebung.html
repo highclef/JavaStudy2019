@@ -1,4 +1,5 @@
- <meta charset="utf-8"> // 한글 깨짐 방지
+ <meta charset="utf-8">
+ <!  한글 깨짐 방지>
 <div class="hLogin">
     <string class = "title"><a href="/">koreanstudy gruppe</a></string>
 
@@ -11,4 +12,34 @@
                 <div class="dt"><label for="upw_">비밀번호</label></div>
                 <div class="dd"><input name="password" type="password" class="inputText" id="upw_" onfocus="jQuery('label[for=upw_]').text('')" tabindex="6" /></div>
                 </div>
-                
+                <span class="keep">
+                    <input name="keep_signed" type="checkbox" id="keepA" vlaue="Y" tabindex="7"/>
+                    <label for="keepA">유지
+
+                    </label>
+                    <lable for="keepA" class ="title">
+                        브라우저를 닫더라도 로그인이 유지될 수 있습니다.
+                        <br />
+                        공공장소에서는 체크 해제 바랍니다.
+
+                        </lable>
+                </span>
+                <span class="keep">
+                    <input name="secure_login" type="checkbox" id="secure_login_l" vlaue="Y" checked="checked" tabindex="8" />
+                    <label for="secure_login_l">보안</label>
+                    <lable for="secure_login_l" class="title">
+                        암호화된 보안 전송 로그인합니다.
+
+                        </lable>
+                </span>
+
+                    <span class="submit"><input type="submit" value="로그인" id="hSubmit" tabindex="9" /></span>
+                    </fieldset>
+                    </form>
+                    <div class="ul">
+                        <span><a href="">회원가입</a></span>
+                    </div>
+                    </div>
+                   
+
+
