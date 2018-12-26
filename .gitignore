@@ -7,3 +7,4 @@ nodejs/.vscode/ftp-kr.json
 nodejs/node_modules
 nodejs/package.json
 nodejs/package-lock.json
+nodejs/lib/db.js
