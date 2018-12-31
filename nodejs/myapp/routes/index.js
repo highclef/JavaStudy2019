@@ -3,11 +3,14 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
-
-router.get('/member/login', function(req, res, next) {
-  res.render('./member/login');
+  var logined = false;
+  if (req.user) {
+    logined = true;
+    console.log('username : ' + req.user.username);
+  }
+  console.log('logined : ' + logined);
+  console.log('user : ' + req.user)
+  res.render('index', {message:req.flash('message'), title: 'Express', isLogined:logined });
 });
 
 module.exports = router;
