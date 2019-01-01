@@ -3,8 +3,11 @@ var router = express.Router();
 var db     = require('../../db/dbconnection');
 var passport = require('passport'),
   LocalStrategy = require('passport-local').Strategy;
+var useragent = require('useragent');
 
 router.get('/', function(req, res, next) {
+    console.log(useragent.parse(req.headers['user-agent']));
+    console.log(useragent.is(req.headers['user-agent']));
     res.send('member respond with a resource');
 });
 
@@ -54,8 +57,17 @@ router.post('/register', function(req, res, next) {
             // res.redirect('/');
             //console.log(results);
             // alert("register sucess!!")
-            res.redirect('/member/loginview');
+            // res.redirect('/member/loginview');
             // res.render('./member/login', {username: req.body.username, password: req.body.password});
+            var user = {
+                name: req.body.name,
+                username: req.body.username,
+                password: req.body.password
+            }
+            req.login(user, function(err) {
+                if (err) { return next(err); }
+                return res.redirect('/');
+            });
         }
     });
 });
