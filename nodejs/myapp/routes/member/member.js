@@ -11,7 +11,7 @@ router.get('/', function(req, res, next) {
     res.send('member respond with a resource');
 });
 
-router.post('/loginview', function(req, res, next) {
+router.get('/loginview', function(req, res, next) {
     // db.dbconnection().query('SELECT * FROM project2019.member;', function (error, results, fields) {
     //     if (error) throw error;
     //     console.log(results);
@@ -20,10 +20,41 @@ router.post('/loginview', function(req, res, next) {
     res.render('./member/login');
 });
   
-router.post('/login', passport.authenticate('local', {
-    successRedirect: '/',
-    failureRedirect: '/login'
-}));
+router.post('/loginview', function(req, res, next) {
+    // db.dbconnection().query('SELECT * FROM project2019.member;', function (error, results, fields) {
+    //     if (error) throw error;
+    //     console.log(results);
+    // });
+    
+    res.render('./member/login');
+});
+
+router.post('/login', function(req, res, next) {
+    /* look at the 2nd parameter to the below call */
+    passport.authenticate('local', function(err, user, info) {
+        if (err) { 
+            return next(err); 
+        }
+        if (!user) { 
+            return res.redirect('/member/loginview'); 
+        }
+        req.logIn(user, function(err) {
+            if (err) { 
+                return next(err); 
+            }
+            var isAndroid = false;
+            console.log(useragent.is(req.headers['user-agent']));
+            if (useragent.is(req.header['user-agent']).android) {
+                isAndroid = true;
+            }
+            if (isAndroid) {
+                res.send(JSON.stringify(req.user));
+            }
+            console.log(JSON.stringify(req.user));
+            return res.redirect('/');
+        });
+    })(req, res, next);
+});
 
 router.post('/logout', function(req, res, next) {
     req.logout();

@@ -9,6 +9,7 @@ var flash    = require('connect-flash');
 var passport = require('passport')
     , LocalStrategy = require('passport-local').Strategy;
 var db     = require('./db/dbconnection');
+var useragent = require('useragent');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -61,6 +62,9 @@ passport.use(new LocalStrategy({
       return done(null, false);
       // throw error;
     } else {
+      if (results.length <= 0) {
+        return done(null, false);
+      }
       if (results[0].username === username && results[0].password === password) {
         req.flash('message', `${results[0].username} is login success!`);
         return done(null, results[0]);
