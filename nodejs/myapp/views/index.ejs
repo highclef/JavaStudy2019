@@ -6,21 +6,24 @@
   </head>
   <body>
     <h1><%= message %></h1>
-    <h1><%= title %></h1>
+    <h1><%= loginId %><%= title %></h1>
     <p>Welcome to <%= title %></p>
     <p>
       <% if (isLogined) { %>
         <form action="/member/logout" method="POST">
           <input type="submit" value="Logout">
         </form>
+        <form action="/member/updateview" method="POST">
+          <input type="submit" value="Update">
+        </form>
       <% } else { %>
         <form action="/member/loginview" method="POST">
           <input type="submit" value="Login">
         </form>
+        <form action="/member/registerview" method="POST">
+          <input type="submit" value="Register">
+        </form>
       <% } %>
-      <form action="/member/registerview" method="POST">
-        <input type="submit" value="Register">
-      </form>
     </p>
   </body>
 </html>

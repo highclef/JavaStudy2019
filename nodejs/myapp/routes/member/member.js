@@ -31,6 +31,10 @@ router.post('/registerview', function(req, res, next) {
     res.render('./member/register', {error: req.flash('error')});
 });
 
+router.post('/updateview', function(req, res, next) {
+    res.render('./member/update', {nameValue: req.user.name, usernameValue: req.user.username});
+});
+
 router.post('/register', function(req, res, next) {
     console.log(req.body.name);
     console.log(req.body.username);
@@ -46,10 +50,12 @@ router.post('/register', function(req, res, next) {
             res.render('./member/register', {error: req.flash('error')});
             return false;
         } else {
-            req.flash("message", 'register sucess!');
-            res.redirect('/');
+            // req.flash("message", 'register sucess!');
+            // res.redirect('/');
             //console.log(results);
             // alert("register sucess!!")
+            res.redirect('/member/loginview');
+            // res.render('./member/login', {username: req.body.username, password: req.body.password});
         }
     });
 });
