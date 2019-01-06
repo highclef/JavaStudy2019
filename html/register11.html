@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>회원가입</title>
+<link rel="stylesheet" type="text/css" href="css/default5.css">
+<link rel="stylesheet" type="text/css" href="css/style1.css">
+<script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script>
+$(document).ready(function()
+{
+    $(".register .btn_type2").on('click',function(){
+        $(this).parent().hide();
+    });
+
+});
+</script>
+</head>
+<body>
+    <div class ="register">
+    <h2>회원 가입</h2>
+    <div class="con">
+    <table class="type1">
+    
+        <colgroup>
+        <col style="width: 111px">
+        <col>
+        </colgroup>
+            <tbody>
+                <tr>
+                    <th><label for="txt1">이름</label><span>*</span></th>
+                    <td><input type="text" id="txt1" placeholder="이름을 입력해 주세요"></td>
+                </tr>
+                <tr>
+                    <th><label for="txt2">아이디</label><span>*</span></th>
+                    <td><input type="text" id="txt2"></td>
+                </tr>
+                <tr>
+                    <th><label for="pass1">비밀번호</label><span>*</span></th>
+                    <td><input type="password" id="pass1" placeholder="4~16자리를 입력해주세요"></td>
+                </tr>
+                <tr>
+                    <th><label for="pass2">비밀번호 확인</label><span>*</span></th>
+                    <td><input type="password" id="pass2"></td>
+                </tr>
+                <tr>
+                    <th>성별</th>
+                    <td>
+                        <ul>
+                        <li><input type="checkbox" id="chk1_1"><label for="chk1_1">남자</label>
+                        <input type="checkbox" id="chk1_2"><label for="chk1_2">여자</label></li> 
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <th><label for="txt3">핸드폰</label></th>
+                    <td><input type="tel" id="txt3" placeholder="숫자만 입력해 주세요"></td>
+                </tr>
+                <tr>
+                    <th><label for="email1">이메일</label><span>*</span></th>
+                    <td><input type="email" id="email1">@
+                    <select>
+                        <option>선택</option>
+                        <option>gmail.com</option>
+                        <option>naver.com</option>
+                        <option>hanmail.com</option>
+                        </select>
+                    </td>
+                </tr>
+                
+            </tbody>
+            <li><span>*는 필수사항입니다</span></li>
+    </table>
+    <div class="agree">
+            <input type="checkbox" id="chk1_3"><label for="chk1_3"><span>[필수]</span>개인정보 수집 및 이용 동의</label>
+            <a href="#a" class="view">전문보기</a>
+    </div>
+    </div>
+    <div class = "txt_center">
+    <a href="#a" class="btn_type1" input type="submit">회원가입</a>
+    <a href="#a" class="btn_type2" input type="reset">닫기</a>
+    </div>
+    </div>
+</body>
+</html>
